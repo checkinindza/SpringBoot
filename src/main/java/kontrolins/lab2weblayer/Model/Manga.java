@@ -1,5 +1,6 @@
 package kontrolins.lab2weblayer.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import kontrolins.lab2weblayer.Model.enums.Demographic;
 import kontrolins.lab2weblayer.Model.enums.Language;
@@ -26,6 +27,7 @@ public class Manga extends Publication {
     private int volumeNumber;
     @Enumerated(EnumType.STRING)
     private Demographic demographic;
+    @JsonIgnore
     @Convert(converter = MangaGenreConverter.class)
     @Column(name = "genres", columnDefinition = "varchar(255) default NULL")
     private List<MangaGenre> mangaGenres;

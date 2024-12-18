@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private ClientRepo clientRepo;
 
-    @GetMapping(value  = "/allUsers")
+    @GetMapping(value  = "allUsers")
     public @ResponseBody
     Iterable<User> getAll() {
         return userRepo.findAll();

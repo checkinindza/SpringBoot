@@ -26,10 +26,12 @@ public abstract class Publication {
     @Enumerated(EnumType.STRING)
     protected Language language;
     protected LocalDate publicationDate;
+    @JsonIgnore
     protected LocalDate requestDate;
     protected int pageCount;
     @ManyToOne
     protected Client owner;
+    @JsonIgnore
     @ManyToOne
     protected Client borrowerClientList;
     protected String publisher;
@@ -37,6 +39,7 @@ public abstract class Publication {
     protected String summary;
     @Enumerated(EnumType.STRING)
     protected PublicationStatus publicationStatus;
+    @JsonIgnore
     @Column(insertable = false, updatable = false)
     protected String dtype;
     @JsonIgnore

@@ -26,10 +26,10 @@ public abstract class User {
     protected String surname;
     protected String email;
     @JsonIgnore
-    @OneToMany(mappedBy = "actionUser", cascade = CascadeType.ALL , fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "actionUser", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<PeriodicRecord> actionUserPeriodicRecords;
     @JsonIgnore
-    @OneToMany(mappedBy = "borrowerClient", cascade = CascadeType.ALL , fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(mappedBy = "borrowerClient", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<PeriodicRecord> borrowerClientPeriodicRecords;
 
     public User(String login, String password, String name, String surname, String email) {

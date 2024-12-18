@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface PublicationRepo extends JpaRepository<Publication, Integer> {
     List<Publication> findPublicationByPublicationStatusEquals(PublicationStatus publicationStatus);
+    List<Publication> findPublicationByOwnerId(int id);
 }

@@ -21,20 +21,21 @@ import java.util.List;
 
 public class Client extends User {
     private String address;
+    @JsonIgnore
     private LocalDate birthDate;
     @JsonIgnore
     private String clientBio;
     @JsonIgnore
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE , fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Comment> commentList;
     @JsonIgnore
-    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE , fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Publication> ownedPublications;
     @JsonIgnore
-    @OneToMany(mappedBy = "borrowerClientList", cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "borrowerClientList", cascade = CascadeType.REMOVE , fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Publication> borrowedPublications;
     @JsonIgnore
-    @OneToMany(mappedBy = "commentOwner", cascade = CascadeType.ALL , fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "commentOwner", cascade = CascadeType.REMOVE , fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Comment> myComments;
 
     public Client(String login, String password, String name, String surname, String email, String address, LocalDate birthDate, List<Comment> commentList, List<Publication> ownedPublications, List<Publication> borrowedPublications) {
